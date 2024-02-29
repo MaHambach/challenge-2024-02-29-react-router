@@ -1,0 +1,65 @@
+.RickAndMortyCharacterCard {
+    display: flex;
+    overflow: hidden;
+    background: rgb(60, 62, 68);
+    border-radius: 0.5rem;
+    margin: 0.75rem;
+    width: 600px;
+    height: 220px;
+}
+
+.RickAndMortyCharacterCard_ImageContainer {
+    flex: 2 1 0;
+    width: 100%;
+    overflow: hidden;
+}
+.RickAndMortyCharacterCard_Image {
+    width: 100%; /* Bildbreite 100% des Containers */
+    height: 100%; /* Bildhöhe 100% des Containers */
+    object-fit: cover; /* Zuschneiden des Bildes, um den Container auszufüllen */
+    object-position: center;
+}
+
+.RickAndMortyCharacterCard_Content {
+    flex: 3 1 0;
+    position: relative;
+    padding: 0.75rem;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.RickAndMortyCharacterCard_Content .section:first-child {
+    -moz-box-pack: start;
+    justify-content: flex-start;
+    margin-top: 0;
+}
+
+.RickAndMortyCharacterCard_Content .section{
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    -moz-box-pack: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.RickAndMortyCharacterCard_Content h2 {
+    font-size: 1.5rem;
+}
+
+.RickAndMortyCharacterCard_Content span, .RickAndMortyCharacterCard_Content h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.RickAndMortyCharacterCard_Content .status {
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    margin-top: -10px;
+}
+
+.RickAndMortyCharacterCard_Content .text-gray {
+    font-size: 0.875rem;
+    color: lightgray;
+}
