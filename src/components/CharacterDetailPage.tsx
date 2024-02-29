@@ -10,9 +10,10 @@ export default function CharacterDetailPage(props:Readonly<CharacterDetailPagePr
     const params = useParams();
     const id: string | undefined = params.id;
     if(id===undefined) throw new Error("No id provided in url");
+
     const character:Character = props.characters.filter((character:Character) => character.id === parseInt(id))[0];
 
     return (
-        <CharacterCard character={character} />
+        <CharacterCard character={character}  key={character.id}/>
     );
 }

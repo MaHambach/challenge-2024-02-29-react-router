@@ -10,7 +10,7 @@ export default function CharacterCard(props: Readonly<CharacterCardProps>): JSX.
     const character:Character = props.character;
 
     return (
-        <Link to={"/character/" + character.id}>
+        <Link to={`/characters/`+character.id}>
 
         <article className="RickAndMortyCharacterCard">
             <div className={"RickAndMortyCharacterCard_ImageContainer"}>
