@@ -5,9 +5,9 @@ export default function Header() {
 
     return(
         <header className={"customHeader"}>
-            <span><Link to="/Home/Welcome">Home</Link></span>
-            <span><Link to="/characters">Charaktere</Link></span>
-            <span><Link to={"/newcharacter"}>Neuer Charakter</Link></span>
+            <Link className={"link"} to="/Home/Welcome">Home</Link>
+            <Link className={"link"} to="/characters">Charaktere</Link>
+            <Link className={"link"} to={"/character"}>Neuer Charakter</Link>
         </header>
     )
 }

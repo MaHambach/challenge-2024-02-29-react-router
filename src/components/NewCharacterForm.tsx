@@ -1,18 +1,30 @@
 import {ChangeEvent, FormEvent, useState} from "react";
-import {CharacterDTO} from "../types/characterDTO.ts";
+import { Character } from "../types/characters.ts";
 import "./NewCharacterForm.css";
 
-const initialFormData:CharacterDTO = {
+const initialFormData:Character = {
+    id: 0,
+    image: "",
     name: "",
     status: "",
-    species: ""
+    species: "",
+    type: "",
+    location: {
+        name: ""
+    },
+    origin: {
+        name: ""
+    }
 }
-export default function NewCharacterForm(): JSX.Element {
-    const [formData, setFormData] = useState<CharacterDTO>(initialFormData);
-    const [submittedFormData, setSubmittedFormData] = useState<CharacterDTO[]>([]);
+
+type NewCharacterFormProps = {
+    handleNewCharacter: (newCharacter:Character) => void;
+}
+export default function NewCharacterForm(props:Readonly<NewCharacterFormProps>): JSX.Element {
+    const [formData, setFormData] = useState<Character>(initialFormData);
     function handleOnSubmit (event:FormEvent<HTMLFormElement>):void {
         event.preventDefault();
-        setSubmittedFormData([...submittedFormData, formData]);
+        props.handleNewCharacter(formData);
         setFormData(initialFormData);
         console.log("Form submitted");
     }
@@ -43,31 +55,20 @@ export default function NewCharacterForm(): JSX.Element {
     }
 
     return (
-        <>
-            <form onSubmit={handleOnSubmit}>
-                <div>
-                    <label htmlFor={"name"}>Name:</label>
-                    <input id={"name"} type="text" name="name" value={formData.name} onChange={handleChangeName}/>
-                </div>
-                <div>
-                    <label htmlFor={"Status"}>Status:</label>
-                    <input id={"Status"} type="text" name="Status" value={formData.status} onChange={handleChangeStatus}/>
-                </div>
-                <div>
-                    <label htmlFor={"Species"}>Species:</label>
-                    <input id={"Species"} type="text" name="Species" value={formData.species} onChange={handleChangeSpecies}/>
-                </div>
-                <button type={"submit"}>Submit</button>
-            </form>
-            <ul className={"newCharacterForm_ul"}>
-                {submittedFormData.map((data) => {
-                  return <li key={data.name}>
-                      <h2>Name: {data.name}</h2>
-                      <h3>Status: {data.status}</h3>
-                      <p>Species: {data.species}</p>
-                    </li>
-                })}
-            </ul>
-        </>
+        <form onSubmit={handleOnSubmit}>
+            <div>
+                <label htmlFor={"name"}>Name:</label>
+                <input id={"name"} type="text" name="name" value={formData.name} onChange={handleChangeName}/>
+            </div>
+            <div>
+                <label htmlFor={"Status"}>Status:</label>
+                <input id={"Status"} type="text" name="Status" value={formData.status} onChange={handleChangeStatus}/>
+            </div>
+            <div>
+                <label htmlFor={"Species"}>Species:</label>
+                <input id={"Species"} type="text" name="Species" value={formData.species} onChange={handleChangeSpecies}/>
+            </div>
+            <button type={"submit"}>Submit</button>
+        </form>
     )
 }
