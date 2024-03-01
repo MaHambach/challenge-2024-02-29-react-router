@@ -1,0 +1,12 @@
+.newCharacterForm_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.newCharacterForm_ul li {
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    background-color: #818080;
+
+}

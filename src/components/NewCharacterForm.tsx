@@ -1,5 +1,6 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {CharacterDTO} from "../types/characterDTO.ts";
+import "./NewCharacterForm.css";
 
 const initialFormData:CharacterDTO = {
     name: "",
@@ -58,7 +59,7 @@ export default function NewCharacterForm(): JSX.Element {
                 </div>
                 <button type={"submit"}>Submit</button>
             </form>
-            <ul>
+            <ul className={"newCharacterForm_ul"}>
                 {submittedFormData.map((data) => {
                   return <li key={data.name}>
                       <h2>Name: {data.name}</h2>
