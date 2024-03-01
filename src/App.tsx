@@ -6,6 +6,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Welcome from "./components/Welcome.tsx";
 import Header from "./components/Header.tsx";
 import CharacterDetailPage from "./components/CharacterDetailPage.tsx";
+import NewCharacterForm from "./components/NewCharacterForm.tsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/Home/Welcome" element={<Welcome/>}/>
                 <Route path="/characters" element={<CharacterGallery characters={characters}/>}/>
                 <Route path={"/characters/:id"} element={<CharacterDetailPage characters={characters}/>}/>
+                <Route path={"/newcharacter"} element={<NewCharacterForm />}/>
             </Routes>
         </main>
     )
